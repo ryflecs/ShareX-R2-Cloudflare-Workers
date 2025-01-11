@@ -1,9 +1,8 @@
 name = "sharex-r2-cloudflare-workers"
-account_id = "522ed7942a6ec29727e101623a48ea76"
+account_id = "58c06c38dab84a26cdd206e61003dacf"
 workers_dev = true
 routes = [
-	{pattern = "r2-sharex.jross.me/*", zone_name = "jross.me"},
-	{pattern = "i.james.pub/*", zone_name = "james.pub"}
+	{pattern = "cdn.fagpup.com/*", zone_name = "fagpup.com"},
 ]
 
 compatibility_date = "2022-10-31"
@@ -14,12 +13,12 @@ main = "./dist/index.mjs"
 command = "npm run build"
 
 [[r2_buckets]]
-bucket_name = "sharex-files"
-preview_bucket_name = "sharex-files"
-binding = "R2_BUCKET"
+bucket_name = "fagpup-cdn"
+preview_bucket_name = "fagpup-cdn"
+binding = "fagpup_cdn"
 
 [vars]
 # Change to the domain your Public Bucket is connected to.
-#CUSTOM_PUBLIC_BUCKET_DOMAIN = "custom-bucket.domain.tld"
+#CUSTOM_PUBLIC_BUCKET_DOMAIN = "fagpup.com"
 # Change to not let the worker serve files, only allowing traffic through the Public Bucket. Do not set if you have old links pointing to the worker.
 #ONLY_ALLOW_ACCESS_TO_PUBLIC_BUCKET = true
